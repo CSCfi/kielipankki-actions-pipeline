@@ -1,13 +1,12 @@
 # GitHub Actions Runner
 
 ## Development Instance
-You can fetch the required token for a single-repository runner in github.com
-by going to the repository > settings > actions > runners > new self hosted
-runner > pick the token from the provided configuration command.
+You need a personal access token for creating a local runner.
 
+After that you can build and start a runner with
 ```
 docker build . -t runnr
-docker run runner [TOKEN]
+docker run runner [PAT]
 ```
 
 ### Cleanup old local containers

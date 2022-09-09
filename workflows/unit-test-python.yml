@@ -14,13 +14,11 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  unit-test:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v3
-    - name: Install Python 3.6
-      run: yum install python3 pip3 -y
     - name: Install required Python packages
-      run: pip3 install -r requirements_dev.txt
+      run: pip3 install -r requirements_dev.txt --user
     - name: Test with pytest
       run: python3 -m pytest

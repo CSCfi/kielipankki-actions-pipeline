@@ -1,6 +1,6 @@
 FROM centos:7
 
-ARG ACTIONS_RUNNER_VERSION="2.295.0"
+ARG ACTIONS_RUNNER_VERSION="2.296.1"
 
 RUN yum install epel-release -y
 RUN yum update -y

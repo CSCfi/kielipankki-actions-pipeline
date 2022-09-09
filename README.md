@@ -40,7 +40,10 @@ registry](https://registry-console.rahti.csc.fi/registry#/?namespace=kielipankki
 increment the major/minor/patch version depending on the changes made.
 
 ### Deploy the Runner as a Pod
-First you must authenticate to OpenShift. The command and token for authentication can be copied from [OpenShift console UI](https://rahti.csc.fi:8443/console/catalog) by clicking your name on the upper right corner and choosing "copy login command".
+First you must authenticate to OpenShift. The command and token for
+authentication can be copied from [OpenShift console
+UI](https://rahti.csc.fi:8443/console/catalog) by clicking your name on the
+upper right corner and choosing "copy login command".
 
 After that you can deploy a new pod with
 ```

@@ -1,6 +1,7 @@
 FROM centos:7
 
-ARG ACTIONS_RUNNER_VERSION="2.296.1"
+ARG ACTIONS_RUNNER_VERSION="2.296.2"
+ARG ACTIONS_RUNNER_CHECKSUM="34a8f34956cdacd2156d4c658cce8dd54c5aef316a16bbbc95eb3ca4fd76429a"
 
 RUN yum install epel-release -y
 RUN yum update -y
@@ -14,7 +15,7 @@ WORKDIR /home/kprunner
 ADD bin .
 
 RUN curl -o "actions-runner-linux-x64-$ACTIONS_RUNNER_VERSION.tar.gz" -L "https://github.com/actions/runner/releases/download/v$ACTIONS_RUNNER_VERSION/actions-runner-linux-x64-$ACTIONS_RUNNER_VERSION.tar.gz"
-RUN echo "a80c1ab58be3cd4920ac2e51948723af33c2248b434a8a20bd9b3891ca4000b6  actions-runner-linux-x64-2.295.0.tar.gz" | shasum -a 256 -c
+RUN echo "$ACTIONS_RUNNER_CHECKSUM  actions-runner-linux-x64-$ACTIONS_RUNNER_VERSION.tar.gz" | shasum -a 256 -c
 RUN tar xzf "./actions-runner-linux-x64-$ACTIONS_RUNNER_VERSION.tar.gz"
 
 USER root

@@ -8,7 +8,7 @@ spec:
     emptyDir: {}
   containers:
   - name: runner-container
-    image: "docker-registry.default.svc:5000/kielipankki-github-runners/runner:v0.2.9"
+    image: "docker-registry.default.svc:5000/kielipankki-github-runners/runner:v1.0.0"
     workingDir: /home/kprunner
     #    args: ["$(GITHUB_PAT)"]
     #    command: ["echo"]

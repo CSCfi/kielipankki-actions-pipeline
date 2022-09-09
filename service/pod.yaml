@@ -10,8 +10,6 @@ spec:
   - name: runner-container
     image: "docker-registry.default.svc:5000/kielipankki-github-runners/runner:v1.0.0"
     workingDir: /home/kprunner
-    #    args: ["$(GITHUB_PAT)"]
-    #    command: ["echo"]
     args: ["$(GITHUB_PAT)"]
     env:
       - name: GITHUB_PAT

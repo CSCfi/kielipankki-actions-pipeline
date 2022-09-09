@@ -50,3 +50,5 @@ After that you can deploy a new pod with
 oc create -f pod.yml
 ```
 and you should now see a new runner in GitHub.
+
+Remember to delete the old runner if need be.

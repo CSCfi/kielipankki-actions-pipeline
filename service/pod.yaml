@@ -3,9 +3,6 @@ kind: Pod
 metadata:
   generateName: kp-runner-
 spec:
-  volumes:
-  - name: runner-vol
-    emptyDir: {}
   containers:
   - name: runner-container
     image: "docker-registry.default.svc:5000/kielipankki-github-runners/runner:v1.0.0"

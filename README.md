@@ -47,7 +47,7 @@ upper right corner and choosing "copy login command".
 
 After that you can deploy a new pod with
 ```
-oc create -f pod.yml
+oc create -f service/pod.yml
 ```
 and you should now see a new runner in GitHub.
 

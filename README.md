@@ -11,7 +11,7 @@ If there's an outdated Personal Access Token (PAT), it must first be removed.
 You can check existing secrets with `oc get secrets`. If there's
 `runner-secrets` present, it should only contain one data entry (this can be
 confirmed by checking `oc get secret runner-secrets -o json`) and it can be
-removed with `oc delete secret runner-pat`. This removal only affects newly
+removed with `oc delete secret runner-secrets`. This removal only affects newly
 created pods: pre-existing ones will still attempt to use the old token, so
 they must be removed and new ones created for the removal/update to be
 effective.

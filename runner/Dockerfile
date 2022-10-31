@@ -22,4 +22,8 @@ USER root
 RUN ./bin/installdependencies.sh
 
 USER kprunner
+
+RUN export LANG=fi_FI.utf8
+RUN export LC_ALL=fi_FI.utf8
+
 ENTRYPOINT ["/bin/bash", "runner-setup.sh"]

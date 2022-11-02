@@ -7,6 +7,7 @@ RUN apt-get update -y
 RUN apt-get install curl libssl-dev libdigest-sha-perl jq python3 python3-pip -y
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN pip install --upgrade pip
 
 RUN useradd --home-dir /home/kprunner --create-home --no-log-init -u 1031660001 kprunner
 

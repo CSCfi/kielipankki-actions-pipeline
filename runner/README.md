@@ -5,7 +5,7 @@ You need a personal access token for creating a local runner.
 
 After that you can build and start a runner with
 ```
-docker build . -t runnr
+docker build . -t runner
 docker run runner [PAT]
 ```
 

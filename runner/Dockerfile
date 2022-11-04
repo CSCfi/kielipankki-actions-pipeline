@@ -4,9 +4,12 @@ ARG ACTIONS_RUNNER_VERSION="2.298.2"
 ARG ACTIONS_RUNNER_CHECKSUM="0bfd792196ce0ec6f1c65d2a9ad00215b2926ef2c416b8d97615265194477117"
 
 RUN apt-get update -y
-RUN apt-get install curl libssl-dev libdigest-sha-perl jq python3 python3-pip -y
+RUN apt-get install software-properties-common -y
+RUN add-apt-repository ppa:deadsnakes/ppa -y
+RUN apt-get update -y
+RUN apt-get install curl libssl-dev libdigest-sha-perl jq -y
+RUN DEBIAN_FRONTEND=noninteractive TZ=Europe/Helsinki apt-get install python3.8 python3.8-distutils pip -y
 
-RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN pip install --upgrade pip
 
 RUN useradd --home-dir /home/kprunner --create-home --no-log-init -u 1031660001 kprunner

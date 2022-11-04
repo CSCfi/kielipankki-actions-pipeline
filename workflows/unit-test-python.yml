@@ -21,4 +21,4 @@ jobs:
     - name: Install required Python packages
       run: pip install -r requirements_dev.txt --user
     - name: Test with pytest
-      run: python -m pytest
+      run: python3 -m pytest

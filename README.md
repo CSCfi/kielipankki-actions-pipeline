@@ -36,6 +36,14 @@ NB: do NOT check the file into version control: after the secret has been
 created, the file can be deleted.
 
 
+### Updating the GitHub Actions Runner Software in the Container
+You need to change the variables `ACTIONS_RUNNER_VERSION` and
+`ACTIONS_RUNNER_CHECKSUM` in the [dockerfile](runner/Dockerfile) to match the
+version and linux-x64 tar.gz checksum of the newest (or other desired) version
+from https://github.com/actions/runner/releases. After that you can proceed to
+building, uploading and deploying the pod.
+
+
 ### Build the Container
 ```
 docker build runner -t runner
@@ -52,6 +60,9 @@ docker push docker-registry.rahti.csc.fi/kielipankki-github-runners/runner:[VERS
 You can check the previous version from [the container
 registry](https://registry-console.rahti.csc.fi/registry#/?namespace=kielipankki-github-runners):
 increment the major/minor/patch version depending on the changes made.
+
+To use the newest version of the container in the soon-to-be-deployed pod, you
+need to set the image version in [the pod specification file](service/pod.yaml).
 
 ### Deploy the Runner as a Pod
 First you must authenticate to OpenShift. The command and token for

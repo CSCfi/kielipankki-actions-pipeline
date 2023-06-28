@@ -3,10 +3,11 @@
 ## Development Instance
 You need a personal access token for creating a local runner.
 
-After that you can build and start a runner with
+After that you can navigate to the desired runner's directory and build and
+start it with
 ```
-docker build . -t runner
-docker run runner [PAT]
+docker build . -t [runner-name]   # runner-name can be e.g. "python-runner"
+docker run python-runner [PAT]
 ```
 
 ### Cleanup old local containers

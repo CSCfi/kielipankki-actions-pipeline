@@ -45,17 +45,24 @@ building, uploading and deploying the pod.
 
 
 ### Build the Container
+
+To build a specific runner, you need to provide the path to the directory
+containing the Dockerfile and the tag for the runner. For the basic python
+runner, this would be
+
 ```
-docker build runner -t runner
+docker build runners/python-runner -t python-runner
 ```
 
 ### Upload the Container Image to Rahti
 Before uploading you need to authenticate. Authentication command and token are
 shown in the [container registry
 UI](https://registry-console.rahti.csc.fi/registry#/?namespace=kielipankki-github-runners).
+After that you can tag the container and push it to the registry, e.g. for the
+basic python runner:
 ```
-docker tag runner docker-registry.rahti.csc.fi/kielipankki-github-runners/runner:[VERSION]
-docker push docker-registry.rahti.csc.fi/kielipankki-github-runners/runner:[VERSION]
+docker tag python-runner docker-registry.rahti.csc.fi/kielipankki-github-runners/python-runner:[VERSION]
+docker push docker-registry.rahti.csc.fi/kielipankki-github-runners/python-runner:[VERSION]
 ```
 You can check the previous version from [the container
 registry](https://registry-console.rahti.csc.fi/registry#/?namespace=kielipankki-github-runners):
@@ -74,8 +81,8 @@ If there are old, outdated pods (e.g. with old secrets), you can list them with
 `oc get pods` and remove them using `oc delete pod [pod name]`. Remember to
 delete the runner in GitHub UI too.
 
-After that you can deploy a new pod with
+After that you can deploy a new pod with `oc create`, e.g.
 ```
-oc create -f service/pod.yaml
+oc create -f services/python-runner-pod.yaml
 ```
 and you should now see a new runner in GitHub.

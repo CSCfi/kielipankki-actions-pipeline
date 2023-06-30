@@ -20,7 +20,8 @@ RUN useradd --home-dir /home/kprunner --create-home --no-log-init -u 1031660001 
 # Runner software
 
 USER kprunner
-WORKDIR /home/kprunner
+RUN mkdir /home/kprunner/runner
+WORKDIR /home/kprunner/runner
 ADD bin .
 
 RUN curl -o "actions-runner-linux-x64-$ACTIONS_RUNNER_VERSION.tar.gz" -L "https://github.com/actions/runner/releases/download/v$ACTIONS_RUNNER_VERSION/actions-runner-linux-x64-$ACTIONS_RUNNER_VERSION.tar.gz"
@@ -42,4 +43,6 @@ RUN pip install --upgrade pip
 
 
 USER kprunner
-ENTRYPOINT ["/bin/bash", "runner-setup.sh"]
+WORKDIR /home/kprunner
+
+ENTRYPOINT ["/bin/bash", "/home/kprunner/runner/runner-setup.sh"]

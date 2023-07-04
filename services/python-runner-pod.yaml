@@ -1,19 +1,21 @@
+---
+
 apiVersion: v1
 kind: Pod
 metadata:
   generateName: kp-runner-
 spec:
   containers:
-  - name: runner-container
-    image: "docker-registry.default.svc:5000/kielipankki-github-runners/python-runner:v1.0.1"
-    workingDir: /home/kprunner
-    args: ["$(GITHUB_PAT)"]
-    env:
-      - name: GITHUB_PAT
-        valueFrom:
-          secretKeyRef:
-            name: runner-secrets
-            key: gh_runner_pat
-            optional: false
+    - name: runner-container
+      image: "docker-registry.default.svc:5000/kielipankki-github-runners/python-runner:v1.0.1"
+      workingDir: /home/kprunner
+      args: ["$(GITHUB_PAT)"]
+      env:
+        - name: GITHUB_PAT
+          valueFrom:
+            secretKeyRef:
+              name: runner-secrets
+              key: gh_runner_pat
+              optional: false
   securityContext:
     runAsUser: 1031660001

@@ -30,22 +30,31 @@ ADD bin /home/kprunner/
 USER root
 RUN /home/kprunner/runner/bin/installdependencies.sh
 
+# Install pandoc for MD -> HTML
+
 RUN apt-get install python3-pip pandoc python3-pandocfilters fonts-noto fonts-inconsolata git cabal-install nvi -y
 
 RUN cabal update
 RUN mkdir -p /root/.cabal/bin
 RUN cabal install pandoc-types-1.17.5.4 pandoc-emphasize-code
 
-RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN ln -s /usr/bin/python3 /usr/bin/python  # convert.py shebang wants /usr/bin/python
 
 USER kprunner
 WORKDIR /home/kprunner
+
+# For slides
 
 RUN git clone https://github.com/csc-training/slide-template
 WORKDIR /home/kprunner/slide-template
 RUN make git
 ENV PATH="$PATH:/home/kprunner/lib/slidefactory"
 
-USER kprunner
+# For handouts/tutorials
+
 WORKDIR /home/kprunner
+RUN mkdir -p .pandoc/templates
+RUN wget https://raw.githubusercontent.com/tajmone/pandoc-goodies/master/templates/html5/github/GitHub.html5 -O .pandoc/templates/GitHub.html5
+
+
 ENTRYPOINT ["/bin/bash", "/home/kprunner/runner-setup.sh"]

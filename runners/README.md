@@ -7,7 +7,7 @@ After that you can navigate to the desired runner's directory and build and
 start it with
 ```
 docker build . -t [runner-name]   # runner-name can be e.g. "python-runner"
-docker run python-runner [PAT]
+docker run --env RUNNER_REPO='[organization/repository]' python-runner [PAT]
 ```
 
 ### Cleanup old local containers

@@ -2,7 +2,7 @@
 
 if [ $# -ne 2 ]
 then
-  echo "Usage: batch-convert.sh input/directory output/dir"
+  echo "Usage: convert-slides.sh input/directory output/dir"
   exit 1
 fi
 

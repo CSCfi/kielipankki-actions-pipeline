@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: runner-container
-      image: "docker-registry.default.svc:5000/kielipankki-github-runners/course-runner:v0.0.1"
+      image: "docker-registry.default.svc:5000/kielipankki-github-runners/course-runner:v0.0.2"
       workingDir: /home/kprunner
       args: ["$(GITHUB_PAT)"]
       env:
@@ -17,5 +17,7 @@ spec:
               name: runner-secrets
               key: gh_runner_pat
               optional: false
+        - name: RUNNER_REPO
+          value: "aajarven/Kielipankki"
   securityContext:
     runAsUser: 1031660001

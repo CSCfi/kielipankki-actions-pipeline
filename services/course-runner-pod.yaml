@@ -18,6 +18,6 @@ spec:
               key: gh_runner_pat
               optional: false
         - name: RUNNER_REPO
-          value: "aajarven/Kielipankki"
+          value: "csc-training/Kielipankki"
   securityContext:
     runAsUser: 1031660001

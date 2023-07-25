@@ -32,7 +32,7 @@ RUN /home/kprunner/runner/bin/installdependencies.sh
 
 # Install pandoc for MD -> HTML
 
-RUN apt-get install python3-pip pandoc python3-pandocfilters fonts-noto fonts-inconsolata git cabal-install nvi -y
+RUN apt-get install python3-pip pandoc python3-pandocfilters fonts-noto fonts-inconsolata git cabal-install -y
 
 RUN cabal update
 RUN mkdir -p /root/.cabal/bin

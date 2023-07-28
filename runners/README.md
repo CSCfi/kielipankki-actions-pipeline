@@ -1,7 +1,20 @@
 # GitHub Actions Runner
 
 ## Development Instance
-You need a personal access token for creating a local runner.
+You need a personal access token for creating a local runner. If you want to
+create a test runner for pipelines in your personal repositories, you can use a
+fine-grained token to the relevant repository or repositories. The following
+permissions have been tested to be sufficient:
+
+- Read: metadata and secrets
+- Read and write:
+  - actions
+  - actions variables
+  - administration
+  - code
+  - deployments
+  - pages
+  - workflows
 
 After that you can navigate to the desired runner's directory and build and
 start it with

@@ -54,7 +54,7 @@ ENV PATH="$PATH:/home/kprunner/lib/slidefactory"
 
 WORKDIR /home/kprunner
 RUN mkdir -p .pandoc/templates
-RUN wget https://raw.githubusercontent.com/tajmone/pandoc-goodies/master/templates/html5/github/GitHub.html5 -O .pandoc/templates/GitHub.html5
+RUN wget https://raw.githubusercontent.com/csc-training/Kielipankki-material-template/master/templates/html5/github/GitHub.html5 -O .pandoc/templates/GitHub.html5
 
 
 ENTRYPOINT ["/bin/bash", "/home/kprunner/runner-setup.sh"]

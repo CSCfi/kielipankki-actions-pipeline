@@ -12,7 +12,7 @@ objects:
     spec:
       containers:
         - name: runner-container
-          image: "docker-registry.default.svc:5000/kielipankki-github-runners/python-runner:v1.1.1"
+          image: "docker-registry.default.svc:5000/kielipankki-github-runners/python-runner:v1.1.2"
           workingDir: /home/kprunner
           args: ["$(GITHUB_PAT)"]
           env:

@@ -81,8 +81,11 @@ If there are old, outdated pods (e.g. with old secrets), you can list them with
 `oc get pods` and remove them using `oc delete pod [pod name]`. Remember to
 delete the runner in GitHub UI too.
 
-After that you can deploy a new pod with `oc create`, e.g.
+After that you can deploy a new pod for a specific repository with `oc process`
+and `oc create`, e.g.
 ```
-oc create -f services/python-runner-pod.yaml
+oc process -f services/python-runner-pod.yaml -p REPO_NAME=kielipankki-metax-bridge -p REPO_OWNER=cscfi | oc create -f -
 ```
 and you should now see a new runner in GitHub.
+
+NB: `REPO_NAME` needs to be provided in all lower case.

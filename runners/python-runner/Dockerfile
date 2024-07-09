@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
-ARG ACTIONS_RUNNER_VERSION="2.312.0"
-ARG ACTIONS_RUNNER_CHECKSUM="85c1bbd104d539f666a89edef70a18db2596df374a1b51670f2af1578ecbe031"
+ARG ACTIONS_RUNNER_VERSION="2.317.0"
+ARG ACTIONS_RUNNER_CHECKSUM="9e883d210df8c6028aff475475a457d380353f9d01877d51cc01a17b2a91161d"
 
 RUN export LANG=fi_FI.utf8
 RUN export LC_ALL=fi_FI.utf8
@@ -14,7 +14,7 @@ RUN apt-get update -y \
   && apt-get upgrade -y \
   && apt-get install curl wget libssl-dev libdigest-sha-perl jq -y
 
-RUN useradd --home-dir /home/kprunner --create-home --no-log-init -u 1031660001 kprunner
+RUN useradd --home-dir /home/kprunner --create-home --no-log-init -u 1002480001 kprunner
 
 
 # Runner software

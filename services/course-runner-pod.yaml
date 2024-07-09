@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: runner-container
-      image: "docker-registry.default.svc:5000/kielipankki-github-runners/course-runner:v1.1.0"
+      image: "image-registry.apps.2.rahti.csc.fi/kp-gh-actions-runners/course-runner:v1.1.1"
       workingDir: /home/kprunner
       args: ["$(GITHUB_PAT)"]
       env:
@@ -20,4 +20,4 @@ spec:
         - name: RUNNER_REPO
           value: "csc-training/Kielipankki"
   securityContext:
-    runAsUser: 1031660001
+    runAsUser: 1002480001

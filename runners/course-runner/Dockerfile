@@ -12,10 +12,10 @@ RUN export LC_ALL=fi_FI.utf8
 
 # GitHub actions runner
 
-ARG ACTIONS_RUNNER_VERSION="2.306.0"
-ARG ACTIONS_RUNNER_CHECKSUM="b0a090336f0d0a439dac7505475a1fb822f61bbb36420c7b3b3fe6b1bdc4dbaa"
+ARG ACTIONS_RUNNER_VERSION="2.317.0"
+ARG ACTIONS_RUNNER_CHECKSUM="9e883d210df8c6028aff475475a457d380353f9d01877d51cc01a17b2a91161d"
 
-RUN useradd --home-dir /home/kprunner --create-home --no-log-init -u 1031660001 kprunner
+RUN useradd --home-dir /home/kprunner --create-home --no-log-init -u 1002480001 kprunner
 USER kprunner
 
 RUN mkdir /home/kprunner/runner

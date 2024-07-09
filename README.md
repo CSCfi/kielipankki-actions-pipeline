@@ -56,13 +56,17 @@ docker build runners/python-runner -t python-runner
 
 ### Upload the Container Image to Rahti
 Before uploading you need to authenticate. Authentication command and token are
-shown in the [container registry
-UI](https://registry-console.rahti.csc.fi/registry#/?namespace=kielipankki-github-runners).
-After that you can tag the container and push it to the registry, e.g. for the
+shown in the [web UI](https://console-openshift-console.apps.2.rahti.csc.fi/),
+after which you can log in to container registry using
+```
+docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
+```
+
+You can tag the container and push it to the registry, e.g. for the
 basic python runner:
 ```
-docker tag python-runner docker-registry.rahti.csc.fi/kielipankki-github-runners/python-runner:[VERSION]
-docker push docker-registry.rahti.csc.fi/kielipankki-github-runners/python-runner:[VERSION]
+docker tag python-runner image-registry.apps.2.rahti.csc.fi/kp-gh-actions-runners/python-runner:[VERSION]
+docker push image-registry.apps.2.rahti.csc.fi/kp-gh-actions-runners/python-runner:[VERSION]
 ```
 You can check the previous version from [the container
 registry](https://registry-console.rahti.csc.fi/registry#/?namespace=kielipankki-github-runners):

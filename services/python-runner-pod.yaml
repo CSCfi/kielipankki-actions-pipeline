@@ -12,7 +12,7 @@ objects:
     spec:
       containers:
         - name: runner-container
-          image: "docker-registry.default.svc:5000/kielipankki-github-runners/python-runner:v1.1.2"
+          image: "image-registry.apps.2.rahti.csc.fi/kp-gh-actions-runners/python-runner:v1.1.4"
           workingDir: /home/kprunner
           args: ["$(GITHUB_PAT)"]
           env:
@@ -25,7 +25,7 @@ objects:
             - name: RUNNER_REPO
               value: ${REPO_OWNER}/${REPO_NAME}
       securityContext:
-        runAsUser: 1031660001
+        runAsUser: 1002480001
 parameters:
   - name: REPO_OWNER
     required: true

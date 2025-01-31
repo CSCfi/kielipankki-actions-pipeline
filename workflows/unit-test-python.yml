@@ -17,7 +17,7 @@ jobs:
   unit-test:
     runs-on: self-hosted
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Install required Python packages
       run: pip install -r requirements_dev.txt --user
     - name: Test with pytest
